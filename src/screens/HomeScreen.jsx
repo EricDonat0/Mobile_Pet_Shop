@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useEffect, useState } from 'react';
 export default function HomeScreen(token) {
@@ -43,6 +43,11 @@ export default function HomeScreen(token) {
 
   return (
     <SafeAreaView style={styles.container}>
+
+       <View style={styles.header}>
+
+        </View>
+
       <FlatList
         data={pets}
         keyExtractor={getKey}
@@ -58,25 +63,46 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor: '#f5f5f5',
+  },
+
+  header: {
+    width: '100%',
+    height: 200,
+    marginBottom: 10,
+    borderRadius: 15,
+    overflow: 'hidden',
   },
 
   linha: {
     justifyContent: 'space-between',
+    marginBottom: 15,
   },
 
   cardPet: {
     width: '48%',
-    marginBottom: 25,
+    backgroundColor: '#fff', 
+    borderRadius: 15,
+    padding: 10,
     alignItems: 'center',
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5, 
   },
 
   imagemPet: {
-    width: 100,
-    height: 100,
-    borderRadius: 10,
+    width: 120,
+    height: 120,
+    borderRadius: 15,
+    marginBottom: 10,
   },
 
   textoPet: {
     textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
   },
 });
